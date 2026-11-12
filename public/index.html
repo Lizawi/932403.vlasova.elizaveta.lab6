@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Генератор Lorem Ipsum</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icons/icon-192.png">
+</head>
+<body>
+  <nav>
+    <a href="/">Главная</a>
+    <a href="/about">О себе</a>
+  </nav>
+
+  <h1>Генератор Lorem Ipsum</h1>
+  <p>
+    <label>Слов в абзаце (1–1000):
+      <input type="number" id="words" value="20" min="1" max="1000">
+    </label>
+  </p>
+  <p>
+    <label>Абзацев (1–10):
+      <input type="number" id="paragraphs" value="1" min="1" max="10">
+    </label>
+  </p>
+  <button id="generate">Сгенерировать</button>
+
+  <div id="result"></div>
+
+  <script src="/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(() => console.log('Service worker зарегистрирован'))
+        .catch((err) => console.log('Ошибка регистрации:', err));
+    }
+  </script>
+</body>
+</html>
